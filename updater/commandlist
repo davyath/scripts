@@ -1,0 +1,16 @@
+#!/bin/bash
+################################
+#Script Name	: update_servers
+#Description	: used to update multiple servers over pssh
+#Info:		: logs are stored in ~/updatelogs
+################################
+echo
+date
+echo
+uptime
+sudo apt update -y
+sudo apt upgrade -y
+if [ $HOSTNAME == "pihole" ]; then
+	sudo /usr/local/bin/pihole -up
+fi
+exit 0
